@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Anwal de Rome | Anwelkom</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06372c",
+                        "accent-gold": "#c5a059",
+                        "brand-cream": "#f6f1e9",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#11211e",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .arabic-text { direction: rtl; }
+        .gold-gradient {
+            background: linear-gradient(135deg, #c5a059 0%, #ecd399 50%, #c5a059 100%);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #11211e; }
+        ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 10px; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+  }
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display">
+    <div id="root"></div>
+    <!-- الربط بملف التطبيق الرئيسي لضمان عدم ظهور صفحة سوداء -->
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

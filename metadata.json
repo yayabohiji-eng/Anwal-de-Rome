@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Anwal de Rome",
+  "description": "A luxury Moroccan-Italian fusion restaurant web application with AI-powered menu recommendations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
