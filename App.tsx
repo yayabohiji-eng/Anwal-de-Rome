@@ -164,14 +164,14 @@ const HomePage = () => {
             <h2 className="text-white text-4xl lg:text-6xl font-serif font-bold italic">Anwal de Rome</h2>
           </div>
           
-          <nav className="flex flex-wrap lg:flex-col gap-3">
+          <nav className="grid grid-cols-2 gap-2">
             {Object.values(Category).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-4 rounded-xl border text-[11px] font-bold tracking-widest uppercase transition-all text-left ${
+                className={`px-3 py-3 rounded-xl border text-[9px] md:text-[10px] font-bold tracking-widest uppercase transition-all text-center flex items-center justify-center min-h-[54px] leading-tight ${
                   activeCategory === cat 
-                    ? 'bg-accent-gold border-accent-gold text-primary shadow-2xl scale-105' 
+                    ? 'bg-accent-gold border-accent-gold text-primary shadow-xl scale-105 z-10' 
                     : 'border-white/10 text-white/50 hover:border-white/30 hover:text-white bg-white/5'
                 }`}
               >

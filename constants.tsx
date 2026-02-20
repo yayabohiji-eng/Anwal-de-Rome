@@ -7,6 +7,7 @@ export const CONTACT_INFO = {
   mapsUrl: "https://maps.app.goo.gl/RdDAJFyN2TrXGuXR9",
   facebookUrl: "https://www.facebook.com/Anwalderome",
   instagramUrl: "https://www.instagram.com/anwal_de_rome/",
+  whatsappUrl: "https://wa.me/212676651181",
   openingHours: "Lun - Dim : 08:00 - 23:30"
 };
 

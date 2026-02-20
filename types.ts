@@ -2,10 +2,10 @@
 export enum Category {
   ALACARTE = 'À La Carte',
   PLAT_DE_SEMAINE = 'Plat de Semaine',
-  OMELETTES = 'Omelettes',
-  BURGER = 'Burger',
   SALADES = 'Salades',
   BOISSONS_CHAUDES = 'Boissons Chaudes',
+  OMELETTES = 'Omelettes',
+  BURGER = 'Burger',
   FRAPPOCCINO = 'Frappoccino'
 }
 
