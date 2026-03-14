@@ -38,7 +38,13 @@ const translations: Record<Language, Record<string, string>> = {
     cat_boissons: "Boissons Chaudes",
     cat_frapp: "Frappoccino",
     cat_plats: "Plats de Semaine",
-    social_heading: "SOCIAL"
+    social_heading: "SOCIAL",
+    notre_histoire: "Notre Histoire",
+    story_p1: "Au cœur de la ville de Guelmim, le restaurant Anwal est né pour offrir une expérience culinaire alliant qualité et goût authentique dans une atmosphère confortable et élégante. Nous veillons à sélectionner les meilleurs ingrédients pour proposer à nos convives une variété de plats, des délicieuses pizzas italiennes et salades fraîches, aux poissons tendres et jus rafraîchissants, en plus des plats marocains authentiques avec une touche moderne.",
+    story_p2: "Notre objectif est de faire d'Anwal le lieu idéal pour rencontrer des amis, réunir la famille et savourer un délicieux repas dans une ambiance chaleureuse et accueillante.",
+    feat_chefs: "Chefs Professionnels",
+    feat_pizza: "Pizza Italienne",
+    quality_passion: "Qualité & Passion"
   },
   AR: {
     accueil: "الرئيسية",
@@ -70,7 +76,13 @@ const translations: Record<Language, Record<string, string>> = {
     cat_boissons: "مشروبات ساخنة",
     cat_frapp: "فرابتشينو",
     cat_plats: "أطباق الأسبوع",
-    social_heading: "تواصلوا معنا"
+    social_heading: "تواصلوا معنا",
+    notre_histoire: "قصتنا",
+    story_p1: "في قلب مدينة كلميم، جاء مطعم أنوال ليقدّم تجربة طعام تجمع بين الجودة والمذاق الأصيل في أجواء مريحة وأنيقة. نحرص على اختيار أفضل المكونات لنقدم لضيوفنا تشكيلة متنوعة من الأطباق، من البيتزا الإيطالية الشهية والسلاطات الطازجة، إلى الأسماك الطرية والعصائر المنعشة، إضافة إلى الأطباق المغربية الأصيلة بلمسة عصرية.",
+    story_p2: "هدفنا أن يكون مطعم أنوال المكان المثالي للقاء الأصدقاء، واجتماع العائلة، والاستمتاع بوجبة لذيذة في أجواء دافئة ومرحِّبة.",
+    feat_chefs: "طهاة محترفون",
+    feat_pizza: "بيتزا إيطالية",
+    quality_passion: "جودة وشغف"
   }
 };
 

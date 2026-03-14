@@ -1,22 +1,33 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from './LanguageContext';
 import { CONTACT_INFO } from '../constants';
 
-const LanguageSwitcher = () => {
-  const { lang, setLang } = useLang();
+const LanguageSwitcher = ({ showMenuText }: { showMenuText?: boolean }) => {
+  const { lang, setLang, t } = useLang();
+  const isAr = lang === 'AR';
   
   return (
-    <button 
-      onClick={() => setLang(lang === 'FR' ? 'AR' : 'FR')}
-      className="flex items-center justify-center w-16 h-8 bg-black rounded-full border border-white/20 hover:border-accent-gold/50 transition-all active:scale-95 group shadow-lg"
-      title={lang === 'FR' ? 'Changer en Arabe' : 'تغيير للفرنسية'}
-    >
-      <span className="material-symbols-outlined text-white text-[20px] group-hover:rotate-12 transition-transform duration-500">
-        language
-      </span>
-    </button>
+    <div className={`flex flex-col gap-1 ${isAr ? 'items-end' : 'items-start'}`}>
+      <button 
+        onClick={() => setLang(lang === 'FR' ? 'AR' : 'FR')}
+        className={`flex items-center gap-2 px-2 py-1 bg-transparent rounded transition-all active:scale-95 group ${isAr ? 'flex-row-reverse' : 'flex-row'}`}
+        title={lang === 'FR' ? 'Changer en Arabe' : 'تغيير للفرنسية'}
+      >
+        <span className="text-white font-black text-sm tracking-tight">
+          {lang === 'FR' ? 'Français' : 'العربية'}
+        </span>
+        <span className="material-symbols-outlined text-white text-[22px]">
+          language
+        </span>
+      </button>
+      {showMenuText && (
+        <span className="text-accent-gold text-[10px] font-black tracking-[0.2em] uppercase px-2 animate-in fade-in slide-in-from-top-1 duration-500">
+          {t('our_menu')}
+        </span>
+      )}
+    </div>
   );
 };
 
@@ -24,7 +35,16 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const { pathname } = useLocation();
   const { t, lang } = useLang();
   const [isReserveOpen, setIsReserveOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === '/';
+
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScrollEvent);
+    return () => window.removeEventListener('scroll', handleScrollEvent);
+  }, []);
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -38,10 +58,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div className={`min-h-screen flex flex-col bg-white dark:bg-background-dark ${lang === 'AR' ? 'font-serif' : ''}`}>
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 h-24 flex items-center px-4 md:px-12 ${isHome ? 'bg-transparent' : 'bg-primary border-b border-white/5'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 flex items-center px-4 md:px-12 ${
+        (isHome && !scrolled) ? 'h-24 bg-transparent' : 'h-20 bg-primary shadow-2xl border-b border-white/5'
+      }`}>
         <div className="w-full flex justify-between items-center">
           <div className="flex items-center gap-12">
-            <LanguageSwitcher />
+            <LanguageSwitcher showMenuText={scrolled} />
             <div className="hidden lg:flex items-center gap-8">
               <button 
                 onClick={() => handleScroll('hero-section')} 
@@ -50,6 +72,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 {t('accueil')}
               </button>
               <button onClick={() => handleScroll('concept-section')} className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">{t('concept')}</button>
+              <button onClick={() => handleScroll('story-section')} className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">{t('notre_histoire')}</button>
               <button onClick={() => handleScroll('menu-section')} className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">{t('menu')}</button>
               <a href={CONTACT_INFO.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 hover:text-accent-gold transition-colors">
                 <span className="material-symbols-outlined text-[14px]">location_on</span>
@@ -135,6 +158,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
              <ul className="text-xs space-y-3 text-white/60">
                <li><button onClick={() => handleScroll('hero-section')}>{t('accueil')}</button></li>
                <li><button onClick={() => handleScroll('concept-section')}>{t('concept')}</button></li>
+               <li><button onClick={() => handleScroll('story-section')}>{t('notre_histoire')}</button></li>
                <li><button onClick={() => handleScroll('menu-section')}>{t('menu')}</button></li>
              </ul>
            </div>
