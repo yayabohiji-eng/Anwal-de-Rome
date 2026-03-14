@@ -9,7 +9,7 @@ const MainLogo = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`flex flex-col items-center justify-center text-center ${className}`}>
       <img 
-        src="https://images.unsplash.com/vector-1771414260937-aaa3655c77cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D" 
+        src="https://images.unsplash.com/vector-1773507371001-1826b0510a6d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D" 
         alt="Anwal de Rome Logo"
         className="w-full h-auto object-contain animate-in fade-in zoom-in duration-1000 drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
       />
@@ -56,6 +56,60 @@ const GallerySection = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const StorySection = () => {
+  const { t } = useLang();
+  
+  return (
+    <section id="story-section" className="py-24 bg-white dark:bg-background-dark overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8 animate-in slide-in-from-left duration-1000">
+            <div className="space-y-4">
+              <span className="text-accent-gold text-[10px] font-bold tracking-[0.5em] uppercase block">L'héritage Anwal</span>
+              <h2 className="text-primary dark:text-white text-4xl md:text-5xl font-serif font-bold">{t('notre_histoire')}</h2>
+              <div className="h-0.5 w-16 bg-accent-gold mt-6"></div>
+            </div>
+            
+            <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-lg italic">
+              <p>{t('story_p1')}</p>
+              <p>{t('story_p2')}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-10 pt-6">
+              <div className="flex items-center gap-5 group">
+                <div className="w-16 h-16 bg-[#11211e] dark:bg-[#1a2b28] rounded-2xl flex items-center justify-center border border-white/5 shadow-inner group-hover:border-accent-gold/30 transition-all duration-500">
+                  <span className="material-symbols-outlined text-accent-gold text-3xl group-hover:scale-110 transition-transform duration-500">cooking</span>
+                </div>
+                <span className="font-bold text-primary dark:text-white uppercase tracking-widest text-xs lg:text-sm">{t('feat_chefs')}</span>
+              </div>
+              <div className="flex items-center gap-5 group">
+                <div className="w-16 h-16 bg-[#11211e] dark:bg-[#1a2b28] rounded-2xl flex items-center justify-center border border-white/5 shadow-inner group-hover:border-accent-gold/30 transition-all duration-500">
+                  <span className="material-symbols-outlined text-accent-gold text-3xl group-hover:scale-110 transition-transform duration-500">local_pizza</span>
+                </div>
+                <span className="font-bold text-primary dark:text-white uppercase tracking-widest text-xs lg:text-sm">{t('feat_pizza')}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative group animate-in slide-in-from-right duration-1000">
+            <div className="absolute -inset-4 bg-accent-gold/10 rounded-[2rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700"></div>
+            <img 
+              src="https://images.unsplash.com/vector-1773511842786-72306e9738cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Anwal Story" 
+              referrerPolicy="no-referrer"
+              className="relative z-10 rounded-[2rem] shadow-2xl object-cover h-[500px] w-full"
+            />
+            <div className="absolute bottom-8 -right-8 z-20 bg-primary p-8 rounded-2xl shadow-2xl border border-accent-gold/20 hidden lg:block text-center">
+               <span className="text-accent-gold text-4xl font-serif font-bold block mb-2">100%</span>
+               <span className="text-white text-sm font-bold uppercase tracking-widest">{t('quality_passion')}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -158,10 +212,10 @@ const HomePage = () => {
 
       {/* Menu Section */}
       <section id="menu-section" className={`flex flex-col lg:flex-row min-h-screen bg-primary ${lang === 'AR' ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
-        <aside className="w-full lg:w-1/3 p-8 md:p-12 lg:p-20 flex flex-col justify-start lg:sticky lg:top-0 lg:h-screen z-20">
-          <div className="mb-12 space-y-4">
+        <aside className="w-full lg:w-1/3 p-6 md:p-10 lg:p-14 flex flex-col justify-start lg:sticky lg:top-0 lg:h-screen z-20">
+          <div className="mb-8 space-y-4">
             <span className="text-accent-gold text-[10px] font-bold tracking-[0.5em] uppercase block">{t('our_menu')}</span>
-            <h2 className="text-white text-4xl lg:text-6xl font-serif font-bold italic">Anwal de Rome</h2>
+            <h2 className="text-white text-4xl lg:text-6xl font-playfair font-bold italic">Anwal de Rome</h2>
           </div>
           
           <nav className="grid grid-cols-2 gap-2">
@@ -181,44 +235,45 @@ const HomePage = () => {
           </nav>
         </aside>
 
-        <main className={`flex-1 bg-brand-cream p-8 md:p-16 lg:p-24 shadow-[-50px_0_100px_rgba(0,0,0,0.5)] z-10 ${lang === 'AR' ? 'lg:rounded-r-[100px]' : 'lg:rounded-l-[100px]'}`}>
+        <main className={`flex-1 bg-brand-cream p-6 md:p-12 lg:p-16 shadow-[-50px_0_100px_rgba(0,0,0,0.5)] z-10 ${lang === 'AR' ? 'lg:rounded-r-[100px]' : 'lg:rounded-l-[100px]'}`}>
           <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-500" key={activeCategory}>
-            <div className="mb-16 border-b border-primary/10 pb-8">
-              <h3 className="text-primary text-3xl lg:text-5xl font-serif font-bold uppercase tracking-tight">
+            <div className="mb-10 border-b border-primary/10 pb-4">
+              <h3 className="text-primary text-3xl lg:text-4xl font-serif font-bold uppercase tracking-tight">
                 {getCategoryTranslation(activeCategory)}
               </h3>
-              <div className="h-1 w-24 bg-accent-gold mt-6"></div>
+              <div className="h-1 w-24 bg-accent-gold mt-3"></div>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-6">
               {filteredItems.map((item) => (
-                <div key={item.id} className="group flex justify-between items-start gap-8 pb-10 border-b border-primary/5 last:border-0">
-                  <div className="space-y-2 flex-1">
-                    <h4 className="text-xl lg:text-2xl font-bold text-primary group-hover:text-accent-gold transition-colors duration-300">
+                <div key={item.id} className="group flex justify-between items-start gap-8 pb-5 border-b border-primary/5 last:border-0">
+                  <div className="space-y-1 flex-1">
+                    <h4 className="text-lg lg:text-xl font-bold text-primary group-hover:text-accent-gold transition-colors duration-300">
                       {lang === 'AR' ? item.nameAr : item.name}
                     </h4>
-                    <p className="text-sm lg:text-base text-slate-500 italic leading-relaxed max-w-lg">
+                    <p className="text-xs lg:text-sm text-slate-500 italic leading-relaxed max-w-lg">
                       {lang === 'AR' ? item.descriptionAr || item.description : item.description}
                     </p>
                   </div>
                   <div className="flex flex-col items-end">
-                    <span className="text-accent-gold font-black text-xl lg:text-2xl whitespace-nowrap shadow-sm" dir="ltr">
+                    <span className="text-accent-gold font-black text-lg lg:text-xl whitespace-nowrap shadow-sm" dir="ltr">
                       {item.price}
                     </span>
-                    <div className="mt-2 h-px w-full bg-accent-gold/20"></div>
+                    <div className="mt-1 h-px w-full bg-accent-gold/20"></div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="mt-20 p-10 bg-primary rounded-3xl text-center shadow-xl">
-               <span className="material-symbols-outlined text-accent-gold text-4xl mb-4">restaurant_menu</span>
-               <p className="text-white/70 text-sm font-serif italic">{t('footer_tag')}</p>
+            <div className="mt-12 p-6 bg-primary rounded-3xl text-center shadow-xl">
+               <span className="material-symbols-outlined text-accent-gold text-3xl mb-2">restaurant_menu</span>
+               <p className="text-white/70 text-xs font-serif italic">{t('footer_tag')}</p>
             </div>
           </div>
         </main>
       </section>
 
+      <StorySection />
       <GallerySection />
       
       {/* Location Section */}
